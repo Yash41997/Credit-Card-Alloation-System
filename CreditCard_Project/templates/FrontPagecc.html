@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Credit card Allocation System</title>
+  <style>
+    body {
+
+      background: url("C:/Users/Yash/Desktop/CreditCard_Project/static/images/cc2.JPG") no-repeat center center fixed;
+
+      background-color: #AED6F1;
+
+
+
+      background-image: url('static/images/cc2.JPG');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    }
+
+    .container {
+      width: 500;
+      position: absolute;
+
+      center: 4;
+      margin: 20px;
+      max-width: 400px;
+      border-style: groove;
+      border: 2px groove;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #D1F2EB;
+    }
+
+    .button {
+
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      background-color: white;
+      font-size: 16px;
+      border-radius: 12px;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login">
+
+    <h1 style="text-align:center;"> <b>
+        <font size="8" color="#283747">Credit Card Allocation System</font>
+      </b></h1>
+
+
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" , class="container">
+
+
+
+
+
+      <b><big>Gender:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</big>
+      </b><label for="sex"></label>
+      <span><select id="sex" name="sex ">
+          <option value="2">Female</option>
+          <option value="1">Male</option>
+        </select></span><br><br>
+      <b> <big>Age:
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </big> <input type="text" name="age" placeholder="Age" required="required" /><br><br>
+
+        <big>Debt:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </big><input type="text" name="par" placeholder="Debt(in Lacks)" required="required" /><br><br>
+        <big>Maritial Status:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</big> <label
+          for="status"></label>
+        <span><select id="status" name="status">
+            <option value="3">Married</option>
+            <option value="2">Unmarried</option>
+          </select></span><br><br>
+        <big>Bank Customer :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</big> <label for="statusbc"></label>
+        <span><select id="statusbc" name="statusbc">
+            <option value="1">Basic</option>
+            <option value="2">Standard</option>
+            <option value="3">Premium</option>
+
+          </select></span><br><br>
+        <big>Educational Level :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</big> <label for="statusel"></label>
+        <span><select id="statusel" name="statusel">
+            <option value="2">Uneducated</option>
+            <option value="6">Basic Education (10th-12th)</option>
+            <option value="11">Graduate</option>
+
+            <option value="14">Post Graduate</option>
+          </select></span><br><br>
+
+        <big>YearsEmployed:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</big> <input type="text" name="fare" placeholder="Years Employed"
+          required="required" /><br><br>
+        <big>Prior Default :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</big> <label for="statuspd"></label>
+        <span><select id="statuspd" name="statuspd">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select></span><br><br>
+        <big>Employed :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</big> <label for="statuse"></label>
+        <span><select id="statuse" name="statuse">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select></span><br><br>
+        <big>CreditScore:&nbsp&nbsp&nbsp&nbsp&nbsp</big> <input type="text" name="creditscore"
+          placeholder="Latest Score(1-100)" required="required" /><br><br>
+        <big>Citizen :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</big> <label for="status"></label>
+        <span><select id="statusctzn" name="statusctzn">
+            <option value="1">Indian</option>
+            <option value="0">Not Indian</option>
+          </select></span><br><br>
+        <big>Income:&nbsp&nbsp&nbsp&nbsp&nbsp</big> <input type="text" name="fareinc" placeholder="Per Annum"
+          required="required" /><br><br>
+
+
+
+        <br>
+
+
+        <button type="submit" class="button"><b>Predict... </b></button>
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <big><big><big><big><a href="creditcard.html" <p style="text-align:right;"> <b>
+              <font face="terminal" size=20 color="#420420">{{ prediction_text }}</font>
+            </b></p></a>
+
+        </big></big></big></big>
+
+</body>
+
+</html>
